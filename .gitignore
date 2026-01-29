@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment
+.env
+.env.local
+.venv/
+__pycache__/
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/settings.json
