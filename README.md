@@ -1,87 +1,95 @@
 # Phishing Analysis Lab
 
-A hands-on lab for analyzing phishing emails using real-world SOC techniques. This project demonstrates how to inspect email headers, trace malicious links safely, and produce structured triage reports.
+Hands-on phishing email analysis using SOC Tier 1 techniques. Real spam samples, real header inspection, real VirusTotal lookups, structured triage reports.
 
-## Objectives
+## What This Lab Covers
 
-- Safely obtain and handle phishing email samples (`.eml` format).
-- Read and interpret email authentication headers: **From**, **Reply-To**, **Received**, **SPF**, **DKIM**, **DMARC**.
-- Extract and inspect embedded links without clicking them.
-- Use online scanners (VirusTotal, URLScan.io) to check suspicious URLs.
-- Write one-page triage reports with a verdict and recommended response actions.
+- Parsing raw `.eml` files and mapping authentication headers (SPF, DKIM, DMARC, Received chain)
+- Extracting embedded links and comparing visible text to actual `href` destinations
+- Safely checking suspicious URLs against threat intelligence (VirusTotal)
+- Writing structured triage reports with IOCs, verdict, and recommended response
 
-## Repository Structure
+## Repository Layout
 
 ```
-Phishing-Analysis-Lab/
-├── samples/          # .eml phishing samples
-├── screenshots/      # Lab screenshots (evidence)
-├── reports/          # Triage reports, templates, and runbook
-│   ├── triage-template.md
-│   └── runbook-phishing-triage.md
-├── .gitignore
-├── README.md         # This file
-└── TUTORIAL.md       # Full step-by-step tutorial
+samples/          .eml phishing samples (real spam, captured from Gmail)
+screenshots/      Evidence screenshots from each analysis phase
+reports/          Triage reports, reusable template, and triage runbook
+TUTORIAL.md       Step-by-step walkthrough to reproduce this analysis
 ```
-
-## Getting Started
-
-See [TUTORIAL.md](TUTORIAL.md) for the full step-by-step walkthrough covering:
-
-1. Obtaining phishing samples
-2. Mapping email headers
-3. Extracting and inspecting links
-4. Writing triage reports
 
 ---
 
 ## Lab Execution & Evidence
 
-The screenshots below document each phase of the phishing analysis workflow. Follow the [Tutorial](TUTORIAL.md) to reproduce these steps and capture your own evidence.
+Analysis of a real phishing/spam email impersonating "OneCasino," sent from attacker infrastructure on an OVH VPS.
 
-### 1. Email Headers
+### 1. Email Header Analysis
 
-Open the `.eml` file in a text editor and identify the key authentication headers (From, Reply-To, Received chain, SPF, DKIM, DMARC). Note any mismatches or failures that indicate spoofing.
+Opened the raw `.eml` in VS Code and mapped the key headers. Findings:
+
+- **From:** `132784@534617.vav.proo55.us.com` — random subdomain, not a legitimate casino domain
+- **Return-Path:** `bounce@vav.proo55.us.com` — bounce address on attacker infrastructure
+- **Received:** Originated from `vps-b3328616.vps.ovh.net` (`141.95.0.46`) — OVH VPS commonly used for spam campaigns
+- **SPF:** `pass` — but for `vav.proo55.us.com`, not a real business domain. Passing SPF does not mean legitimate.
+- **DKIM:** `pass` for `534617.vav.proo55.us.com`; `neutral (expired)` for `googlemail.com`
+- **Auto-Submitted:** `auto-replied` — bot-generated bulk mail
 
 ![Email headers in editor](screenshots/01-eml-headers-in-editor.png)
 
-### 2. Link vs Href
+### 2. Link Extraction — Visible Text vs Actual Href
 
-Compare what the user sees (link text) to where the link actually points (`href` attribute). Mismatches are a primary phishing indicator — the visible text may show a legitimate domain while the real URL leads to an attacker-controlled site.
+Extracted all `<a href="...">` tags from the HTML body. Every link in the email points to the same URL shortener:
+
+| Visible text | Actual `href` |
+|---|---|
+| "Start Spinning Now" | `https://tinyurl.com/mrymsuhv` |
+| "Unsubscribe" | `https://tinyurl.com/mrymsuhv` |
+| "Terms" | `https://tinyurl.com/mrymsuhv` |
+
+The "Unsubscribe" and "Terms" links going to the same destination as the CTA confirms this is not a legitimate mailing — real services have distinct unsubscribe endpoints.
 
 ![Link text vs href](screenshots/02-links-vs-href.png)
 
-### 3. VirusTotal Check
+### 3. VirusTotal URL Scan
 
-Submit extracted URLs to VirusTotal or a similar scanner to check community detection results. Review the detection ratio, flagged categories, and domain registration age.
+Submitted `https://tinyurl.com/mrymsuhv` to VirusTotal (copy-paste, no direct click).
+
+- **Detection ratio:** 2 / 94 security vendors flagged this URL as malicious
+- **Flagged by:** Phishing Database, SafeToOpen — both categorized as **Phishing**
+- **Status:** HTTP 200 (active infrastructure at time of scan)
+
+Low detection ratio (2/94) is common for URL-shortener-based campaigns — the shortener masks the final destination, slowing down automated detection.
 
 ![VirusTotal result](screenshots/03-virustotal-result.png)
 
 ### 4. Triage Report
 
-Document all findings in a structured triage report: suspicious indicators, extracted IOCs, verdict (phishing / not phishing), and recommended action for the SOC.
+Documented all findings in a structured triage report: 6 of 7 suspicious indicators flagged, IOCs extracted (sender, domain, IP, URLs), verdict rendered as **Phishing**, recommended actions include gateway block and user awareness. Full report: [`reports/sample1-triage.md`](reports/sample1-triage.md)
 
-![Triage report sample](screenshots/04-triage-report-sample.png)
+![Triage report](screenshots/04-triage-report-sample.png)
 
 ---
 
-## Tools Used
+## Tools
 
 | Tool | Purpose |
-|------|--------|
-| Text editor (VS Code, Notepad++) | Reading raw `.eml` headers and HTML body |
-| `grep` | Extracting `href` values from email source |
-| [VirusTotal](https://www.virustotal.com) | URL and file hash reputation checks |
-| [URLScan.io](https://urlscan.io) | URL scanning and screenshot capture |
-| [PhishTank](https://phishtank.org) | Community-verified phishing URL database |
+|---|---|
+| VS Code | Raw `.eml` header and HTML body inspection |
+| `grep` | `href` extraction from email source |
+| [VirusTotal](https://www.virustotal.com) | URL reputation and threat intelligence |
+| Gmail ("Show original") | `.eml` export from live mail client |
 
-## Learning Outcomes
+## Skills Demonstrated
 
-This lab builds practical skills that map directly to SOC Analyst (Tier 1) responsibilities:
+| Skill | Detail |
+|---|---|
+| **Email header analysis** | SPF / DKIM / DMARC interpretation, Received chain tracing, sender verification |
+| **Link inspection** | Safe extraction without clicking, URL shortener identification, href vs display text comparison |
+| **Threat intelligence** | VirusTotal lookups, detection ratio analysis, IOC extraction |
+| **Triage reporting** | Structured one-page report with indicators, IOCs, verdict, and SOC response actions |
+| **Safe handling** | No links clicked, no attachments opened, analysis performed on raw source only |
 
-- **Header analysis** — Understand email authentication and identify spoofed senders.
-- **Link inspection** — Spot deceptive URLs without exposing yourself to the payload.
-- **Safe URL checking** — Use third-party scanners instead of clicking links.
-- **Triage reporting** — Produce clear, actionable reports for escalation or closure.
+---
 
 > "I built a lab where I analyze phishing emails: I inspect headers, trace links safely, and write triage reports so I can explain how an attack lands and how a SOC would respond."

@@ -55,14 +55,15 @@ Open one of your `.eml` files in a text editor (VS Code, Notepad++, Sublime Text
 
 ### What to note
 
-For each header, write a one-line observation. Example:
+For each header, write a one-line observation. Example from a real casino spam sample (`samples/sample1.eml`):
 
 ```
-From: billing@paypa1.com          → look-alike domain (paypa1 vs paypal)
-Reply-To: attacker@freemail.com   → different from From — suspicious
-SPF: softfail                     → sending IP not authorized
-DKIM: none                        → message not signed
-DMARC: fail                       → fails alignment checks
+From: 132784@534617.vav.proo55.us.com   → random subdomain, not a real casino domain
+Return-Path: bounce@vav.proo55.us.com   → bounce address on attacker infrastructure
+Received: vps-b3328616.vps.ovh.net      → OVH VPS, common for spam campaigns
+SPF: pass (for vav.proo55.us.com)       → passes, but for a sketchy domain — not meaningful
+DKIM: pass / neutral (expired)          → mixed results, one signature expired
+Auto-Submitted: auto-replied            → bot-generated bulk mail
 ```
 
 ### Screenshot
@@ -87,18 +88,18 @@ Search the `.eml` body for all hyperlinks. You can:
   ```
 - Or visually scan the HTML body in your text editor for `<a href="...">` tags.
 
-For each link, compare:
+For each link, compare. Example from `samples/sample1.eml`:
 
 | Visible text (what the user sees) | Actual `href` (where it really goes) |
-|-----------------------------------|--------------------------------------|
-| "Click here to verify your account" | `http://evil-site.com/phish/login.php` |
-| "https://www.paypal.com/account" | `http://paypa1-secure.xyz/steal.html` |
+|---|---|
+| "Start Spinning Now" | `https://tinyurl.com/mrymsuhv` |
+| "Unsubscribe" | `https://tinyurl.com/mrymsuhv` |
+| "Terms" | `https://tinyurl.com/mrymsuhv` |
 
-Red flags:
-- Visible text looks like a legitimate URL, but `href` points elsewhere.
-- URL shorteners (bit.ly, tinyurl, etc.) hiding the real destination.
-- Redirect chains through multiple domains.
-- Look-alike / typosquatting domains.
+Red flags found:
+- All three links go to the same tinyurl shortener — legitimate services have distinct unsubscribe and terms endpoints.
+- URL shortener hides the real destination, preventing the user from seeing where they would actually land.
+- No legitimate domain visible anywhere in the link destinations.
 
 ### Screenshot
 
