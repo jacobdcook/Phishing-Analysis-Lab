@@ -1,0 +1,50 @@
+Delivered-To: jacobcookofficial@gmail.com
+Received: by 2002:a17:90b:4a0e:b0:2f7:3c1d:9b42 with SMTP id m14csp182947pjt;
+        Fri, 07 Mar 2026 14:48:33 -0800 (PST)
+X-Received: by 2002:a05:6a20:c90b:b0:1f2:8e3a:d4c1 with SMTP id adf61e73a8af0-3b2f4ac8e1mr5291847637.8.1772944113082;
+        Fri, 07 Mar 2026 14:48:33 -0800 (PST)
+Return-Path: <helpdesk@it-servicedesk-portal.com>
+Received: from it-servicedesk-portal.com (pool-72-184-231-94.bstnma.fios.verizon.net. [72.184.231.94])
+        by mx.google.com with ESMTP id d2e1a72fcca58-741a2bc3e91si8291405b3a.103.2026.03.07.14.48.31
+        for <jacobcookofficial@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 07 Mar 2026 14:48:33 -0800 (PST)
+Received-SPF: fail (google.com: domain of helpdesk@it-servicedesk-portal.com does not designate 72.184.231.94 as permitted sender) smtp.mailfrom=helpdesk@it-servicedesk-portal.com;
+Authentication-Results: mx.google.com;
+       dkim=none;
+       spf=fail smtp.mailfrom=helpdesk@it-servicedesk-portal.com;
+       dmarc=fail header.from=it-servicedesk-portal.com
+Content-Type: text/html; charset="UTF-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: 8bit
+To: jacobcookofficial@gmail.com
+Message-ID: <d4e2f891.c3b7a294.8e1f@it-servicedesk-portal.com>
+Date: Fri, 07 Mar 2026 22:48:27 +0000
+From: "IT Support" <helpdesk@it-servicedesk-portal.com>
+Subject: [Ticket #INC-40291] Your mailbox storage is 97% full - Action required within 24 hours
+X-Priority: 1
+
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>IT Service Desk</title></head>
+  <body style="font-family: Segoe UI, Arial, sans-serif; background: #f0f0f0; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 25px; border-left: 4px solid #d83b01;">
+      <p style="color: #d83b01; font-weight: bold; font-size: 14px;">IT SERVICE DESK NOTIFICATION</p>
+      <h3 style="color: #333;">Mailbox Storage Alert</h3>
+      <p>Dear Jacob Cook,</p>
+      <p>Our monitoring systems have detected that your email mailbox has reached <strong>97% capacity</strong>. If your mailbox reaches 100%, you will be unable to send or receive new emails.</p>
+      <div style="background: #fff4ce; border: 1px solid #ffd700; padding: 15px; margin: 15px 0; border-radius: 4px;">
+        <p style="margin: 5px 0;"><strong>Mailbox:</strong> jacobcookofficial@gmail.com</p>
+        <p style="margin: 5px 0;"><strong>Current usage:</strong> 14.6 GB of 15.0 GB</p>
+        <p style="margin: 5px 0;"><strong>Status:</strong> <span style="color: red;">Critical</span></p>
+        <p style="margin: 5px 0;"><strong>Deadline:</strong> March 8, 2026 (24 hours)</p>
+      </div>
+      <p>To resolve this issue, please verify your account and increase your storage allocation:</p>
+      <p style="text-align: center; margin: 20px 0;">
+        <a href="http://it-servicedesk-portal.com/verify?uid=jcook&token=a8f2b3c1d4e5" style="background: #0078d4; color: white; padding: 12px 35px; text-decoration: none; border-radius: 4px; font-weight: bold;">Verify & Upgrade Storage</a>
+      </p>
+      <p style="font-size: 12px; color: #666;">This is an automated message from IT Service Desk. Ticket #INC-40291 has been created for tracking purposes. If you did not request this, please ignore this message.</p>
+      <p style="font-size: 11px; color: #999;">IT Service Desk | helpdesk@company.com | Ext. 4500</p>
+    </div>
+  </body>
+</html>

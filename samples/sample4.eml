@@ -1,0 +1,48 @@
+Delivered-To: jacobcookofficial@gmail.com
+Received: by 2002:a17:90a:cc09:b0:2f1:8b2d:e4a7 with SMTP id t9csp519283pjw;
+        Wed, 19 Feb 2026 11:22:45 -0800 (PST)
+X-Received: by 2002:a05:6a00:2d11:b0:72f:1e4a:b392 with SMTP id adf61e73a8af0-3a8f2bc3d1mr7293851637.22.1771528965127;
+        Wed, 19 Feb 2026 11:22:45 -0800 (PST)
+Return-Path: <hr-department@docusign-secure.net>
+Received: from docusign-secure.net (vps-8291034.vultr.com. [149.28.144.73])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-73c4a1e7d91si2938102b3a.209.2026.02.19.11.22.43
+        for <jacobcookofficial@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 19 Feb 2026 11:22:45 -0800 (PST)
+Received-SPF: fail (google.com: domain of hr-department@docusign-secure.net does not designate 149.28.144.73 as permitted sender) smtp.mailfrom=hr-department@docusign-secure.net;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@docusign-secure.net;
+       spf=fail smtp.mailfrom=hr-department@docusign-secure.net;
+       dmarc=fail (p=NONE dis=NONE) header.from=docusign-secure.net
+Content-Type: text/html; charset="UTF-8"
+Mime-Version: 1.0
+Content-Transfer-Encoding: 8bit
+To: jacobcookofficial@gmail.com
+Message-ID: <a2b8c4d1.9e3f7a28.6c1d@docusign-secure.net>
+Date: Wed, 19 Feb 2026 19:22:39 +0000
+From: "DocuSign via HR" <hr-department@docusign-secure.net>
+Subject: Please review and sign: Updated Employee Handbook Acknowledgment
+X-Priority: 1
+
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>DocuSign</title></head>
+  <body style="font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-top: 4px solid #ffc829;">
+      <img src="cid:docusign-logo" alt="DocuSign" style="width: 140px; margin-bottom: 20px;">
+      <h3 style="color: #333;">Jacob Cook,</h3>
+      <p>Your HR department has sent you a document to review and sign via DocuSign.</p>
+      <div style="background: #f9f9f9; border: 1px solid #eee; padding: 15px; margin: 15px 0; border-radius: 4px;">
+        <p style="margin: 5px 0;"><strong>Document:</strong> Updated Employee Handbook - Q1 2026</p>
+        <p style="margin: 5px 0;"><strong>Sent by:</strong> Sarah Mitchell, HR Director</p>
+        <p style="margin: 5px 0;"><strong>Due date:</strong> February 21, 2026</p>
+        <p style="margin: 5px 0; color: #cc0000;"><strong>Status:</strong> Awaiting your signature</p>
+      </div>
+      <p style="text-align: center; margin: 25px 0;">
+        <a href="https://docusign-secure.net/sign/8f3a2b91c4d7" style="background: #ffc829; color: #333; padding: 14px 40px; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 16px;">REVIEW DOCUMENT</a>
+      </p>
+      <p style="font-size: 12px; color: #666;">This document was sent via DocuSign Electronic Signature service. If you have questions about this document, please contact Sarah Mitchell at sarah.mitchell@company.com.</p>
+      <p style="font-size: 11px; color: #999;">Do not share this email. The link contains a secure access code unique to you.<br>DocuSign, 221 Main Street, Suite 1550, San Francisco, CA 94105</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+Delivered-To: jacobcookofficial@gmail.com
+Received: by 2002:a17:90b:1b4e:b0:2e8:5d3f:a281 with SMTP id p14csp293714pjk;
+        Mon, 10 Feb 2026 06:33:11 -0800 (PST)
+X-Received: by 2002:a05:6830:618b:b0:71f:4c3e:8d92 with SMTP id adf61e73a8af0-3a124cd8e7mr8193726637.4.1770682391041;
+        Mon, 10 Feb 2026 06:33:11 -0800 (PST)
+Return-Path: <accounting@paypaI-resolution.com>
+Received: from paypaI-resolution.com (nl-ams-dc1.hostkey.com. [87.120.37.118])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-7389c1e4d12si4829104b3a.401.2026.02.10.06.33.09
+        for <jacobcookofficial@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 10 Feb 2026 06:33:11 -0800 (PST)
+Received-SPF: fail (google.com: domain of accounting@paypaI-resolution.com does not designate 87.120.37.118 as permitted sender) smtp.mailfrom=accounting@paypaI-resolution.com;
+Authentication-Results: mx.google.com;
+       dkim=fail header.i=@paypaI-resolution.com;
+       spf=fail smtp.mailfrom=accounting@paypaI-resolution.com;
+       dmarc=fail (p=NONE dis=NONE) header.from=paypaI-resolution.com
+Content-Type: multipart/mixed; boundary="----=_Part_38291_1029384756.1770682388"
+Mime-Version: 1.0
+To: jacobcookofficial@gmail.com
+Message-ID: <f93a2e81.b8c4d192.4e7f@paypaI-resolution.com>
+Date: Mon, 10 Feb 2026 14:33:06 +0000
+From: "PayPal Billing Department" <accounting@paypaI-resolution.com>
+Subject: Invoice #PP-2026-8834291 - Payment of $849.99 Processed
+Reply-To: dispute-center@paypaI-resolution.com
+X-Priority: 1
+
+------=_Part_38291_1029384756.1770682388
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><title>PayPal Invoice</title></head>
+  <body style="font-family: Helvetica, Arial, sans-serif; background: #f5f7fa; padding: 20px;">
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 25px; border: 1px solid #ddd;">
+      <img src="cid:paypal-logo" alt="PayPal" style="width: 150px; margin-bottom: 15px;">
+      <h2 style="color: #003087;">Payment Confirmation</h2>
+      <p>Hello Jacob,</p>
+      <p>You sent a payment of <strong>$849.99 USD</strong> to <strong>Geek Squad Subscription Services</strong>.</p>
+      <table style="width: 100%; margin: 15px 0; border-collapse: collapse;">
+        <tr style="background: #f9f9f9;"><td style="padding: 10px; border: 1px solid #eee;"><strong>Invoice Number:</strong></td><td style="padding: 10px; border: 1px solid #eee;">PP-2026-8834291</td></tr>
+        <tr><td style="padding: 10px; border: 1px solid #eee;"><strong>Description:</strong></td><td style="padding: 10px; border: 1px solid #eee;">Annual Tech Support Renewal</td></tr>
+        <tr style="background: #f9f9f9;"><td style="padding: 10px; border: 1px solid #eee;"><strong>Date:</strong></td><td style="padding: 10px; border: 1px solid #eee;">February 10, 2026</td></tr>
+        <tr><td style="padding: 10px; border: 1px solid #eee;"><strong>Amount:</strong></td><td style="padding: 10px; border: 1px solid #eee;"><strong>$849.99 USD</strong></td></tr>
+      </table>
+      <p>If you did not authorize this transaction, please call our dispute resolution team immediately at <strong>+1 (888) 431-2847</strong> or click below:</p>
+      <p style="text-align: center; margin: 20px 0;">
+        <a href="https://tinyurl.com/y6b3kw8e" style="background: #003087; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold;">Dispute This Transaction</a>
+      </p>
+      <p style="font-size: 11px; color: #999;">PayPal, Inc. 2211 North First Street, San Jose, CA 95131<br>Please do not reply directly to this email. This mailbox is not monitored.</p>
+    </div>
+  </body>
+</html>
+------=_Part_38291_1029384756.1770682388--
