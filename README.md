@@ -1,6 +1,6 @@
 # Phishing Analysis Lab
 
-Hands-on phishing email analysis using SOC Tier 1 techniques. Real spam samples, real header inspection, real VirusTotal lookups, structured triage reports.
+Hands-on phishing email analysis using foundational security operations triage with IR handoff in mind. Real spam samples, real header inspection, real VirusTotal lookups, structured triage reports.
 
 ## What This Lab Covers
 
@@ -87,9 +87,9 @@ Documented all findings in a structured triage report: 6 of 7 suspicious indicat
 | **Email header analysis** | SPF / DKIM / DMARC interpretation, Received chain tracing, sender verification |
 | **Link inspection** | Safe extraction without clicking, URL shortener identification, href vs display text comparison |
 | **Threat intelligence** | VirusTotal lookups, detection ratio analysis, IOC extraction |
-| **Triage reporting** | Structured one-page report with indicators, IOCs, verdict, and SOC response actions |
+| **Triage reporting** | Structured one-page report with indicators, IOCs, verdict, and recommended response actions |
 | **Safe handling** | No links clicked, no attachments opened, analysis performed on raw source only |
 
 ---
 
-> "I built a lab where I analyze phishing emails: I inspect headers, trace links safely, and write triage reports so I can explain how an attack lands and how a SOC would respond."
+> "I built a lab where I analyze phishing emails: I inspect headers, trace links safely, and write triage reports so I can explain how an attack lands and what a security operations team would do next, including handoff to IR when needed."
